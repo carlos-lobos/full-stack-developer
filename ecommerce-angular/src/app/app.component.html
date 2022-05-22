@@ -1,0 +1,9 @@
+<button mat-button [matMenuTriggerFor]="belowMenu">Menú</button>
+<mat-menu #belowMenu="matMenu" yPosition="below">
+  <button mat-menu-item routerLink="/">Inicio</button>
+  <button mat-menu-item routerLink="/alta" *ngIf="!isLogin">Registrarse</button>
+  <button mat-menu-item routerLink="/login" *ngIf="!isLogin">Ingresar</button>
+  <button mat-menu-item (click)="salir()" *ngIf="isLogin">Salir</button>
+</mat-menu>
+<hr>
+<router-outlet></router-outlet>

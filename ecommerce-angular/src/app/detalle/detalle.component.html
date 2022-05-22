@@ -1,0 +1,15 @@
+<div>
+  <div *ngIf="producto[0]">
+    <mat-card class="example-card">
+      <mat-card-title-group>
+        <mat-card-title>{{producto[0].id}} - {{producto[0].name}}</mat-card-title>
+        <mat-card-subtitle>{{producto[0].price | currency:'USD':'symbol-narrow':'1.2-2'}}</mat-card-subtitle>
+        <img mat-card-xl-image src="{{producto[0].photo_url}}" >
+      </mat-card-title-group>
+      <mat-card-content>
+        {{producto[0].description}}
+        <p>Stock: {{producto[0].stock}}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

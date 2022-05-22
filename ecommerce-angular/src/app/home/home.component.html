@@ -1,0 +1,16 @@
+<div>
+    <div *ngFor="let producto of productos">
+      <mat-card class="example-card">
+        <mat-card-title-group>
+          <mat-card-title>{{producto.name}}</mat-card-title>
+          <mat-card-subtitle>{{producto.price | currency:'USD':'symbol-narrow':'1.2-2'}}</mat-card-subtitle>
+          <img mat-card-sm-image src="{{producto.photo_url}}" >
+        </mat-card-title-group>
+        <mat-card-content>
+          {{producto.description}}
+          <p><button mat-raised-button color="primary" routerLink="/producto/{{producto.id}}" *ngIf="isLogin">Ver Detalle</button></p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+</div>
+

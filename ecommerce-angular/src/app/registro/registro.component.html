@@ -1,0 +1,43 @@
+<form [formGroup]="regForm" (ngSubmit)="registrarse()" >
+    <div>
+        <label>Nombre</label>
+        <input type="text" formControlName="nombre">
+    </div>
+    <div *ngIf="regForm.get('nombre')?.errors && regForm.get('nombre')?.dirty">
+        <p *ngIf="regForm.get('nombre')?.hasError('required')" [class]="'error'">El campo Nombre es obligatorio.</p>
+    </div>
+
+    <div>
+        <label>Apellido</label>
+        <input type="text" formControlName="apellido">
+    </div>
+    <div *ngIf="regForm.get('apellido')?.errors && regForm.get('apellido')?.dirty">
+        <p *ngIf="regForm.get('apellido')?.hasError('required')" [class]="'error'">El campo Apellido es obligatorio.</p>
+    </div>
+
+    <div>
+        <label>Teléfono</label>
+        <input type="text" formControlName="telefono">
+    </div>
+
+    <div>
+        <label>E-mail</label>
+        <input type="text" formControlName="mail">
+    </div>
+    <div *ngIf="regForm.get('mail')?.errors && regForm.get('mail')?.dirty">
+        <p *ngIf="regForm.get('mail')?.hasError('required')" [class]="'error'">El campo E-mail es obligatorio.</p>
+        <p *ngIf="regForm.get('mail')?.hasError('email')" [class]="'error'">Debe colocar un E-mail válido.</p>
+    </div>
+
+    <div>
+        <label>Contraseña</label>
+        <input type="text" formControlName="passwd" [ngClass]="{error:regForm.get('clave')?.hasError('required') && regForm.get('clave')?.dirty,warning:regForm.get('clave')?.hasError('minlength') && regForm.get('clave')?.dirty}">
+    </div>
+    <div *ngIf="regForm.get('passwd')?.errors && regForm.get('passwd')?.dirty">
+        <p *ngIf="regForm.get('passwd')?.hasError('required')" [class]="'error'">El campo Contraseña es obligatorio.</p>
+        <p *ngIf="regForm.get('passwd')?.hasError('minlength')" [class]="'error'">El campo Contraseña debe tener al menos 6 caracteres.</p>
+        <p *ngIf="regForm.get('passwd')?.hasError('maxlength')" [class]="'error'">El campo Contraseña debe tener como máximo 10 caracteres.</p>
+    </div>
+
+    <button type="submit" [disabled]="regForm.invalid">Registrarse</button>
+</form>
