@@ -23,7 +23,7 @@ Renderizar la entidad "post"
 
 NOTA: finalmente como API use https://jsonfy.com/items
 
-# README ORIGINAL GENERADO AL CREAR UNA APLICACION REACT:
+# README ORIGINAL GENERADO AL CREAR UNA APLICACION ANGULAR:
 
 # Ecommerce
 
